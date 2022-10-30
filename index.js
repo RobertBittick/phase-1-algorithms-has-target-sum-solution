@@ -1,9 +1,37 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
+//Solution 2 (faster)
+function hasTargetSum(array,target){
+  const seenNumbers = {}
+
+  for(const number of array) {
+    const complement = target - number
+    if(complement in seenNumbers) return true
+    seenNumbers[number] = true
+  }
+
+  return false
 }
 
+// Solution 1 (slow)
+//function hasTargetSum(array, target) {
+//   for (let i = 0; i < array.length; i++) {
+//     const complement = target - array[i]
+//     for (let j = i + 1; j < array.length; j++) {
+//       if (array[j] === complement) return true
+//     }
+//   }
+//   return false
+// }
+
 /* 
-  Write the Big O time complexity of your function here
+  Write the Big O time complexity of your function here 
+
+  // Solution 1
+  Runtime: O(n^2)
+  Space: O(n)
+
+  //Solution 2
+  Runtime: O(n)
+  Space: 
 */
 
 /* 
